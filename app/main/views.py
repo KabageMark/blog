@@ -6,15 +6,11 @@ from .forms import BlogForm
 from .. import db
 from .import main
 
-
-
-
-
-
-
-
 @main.route("/post/",methods=['GET','POST'])
 def postedblog():
+    '''
+    this is view funtion for posting a blog 
+    '''
     blog_form=BlogForm()
     title = Blog.query.filter_by(title='title').all()
     blog = Blog.query.filter_by(blog='blog').all()

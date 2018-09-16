@@ -11,6 +11,10 @@ def load_user(user_id):
 
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
+
+    '''
+    this is a models class registering users
+    '''
               
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
@@ -20,16 +24,26 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
        
     @property
+    
     def password(self):
+        '''
+        password function
+        '''
         raise AttributeError('You cannnot read the password attribute')
 
     
     def set_password(self, password):
+        '''
+        function for setting password
+        '''
 
         self.password_hash = generate_password_hash(password)
 
 
     def verify_password(self,password):
+        '''
+      password verification function
+        '''
         return check_password_hash(self.password_hash,password)
 
     def __repr__(self):
@@ -37,6 +51,10 @@ class User(UserMixin,db.Model):
 
 class Blog(db.Model):
    __tablename__='blog'
+   '''
+   class for for posting a blog
+   
+   '''
 
    id = db.Column(db.Integer,primary_key=True)
    title = db.Column(db.String(255))
