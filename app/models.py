@@ -51,6 +51,7 @@ class User(UserMixin,db.Model):
 
 class Blog(db.Model):
    __tablename__='blog'
+
    '''
    class for for posting a blog
    
@@ -68,3 +69,8 @@ class Blog(db.Model):
    def save_blog(self):
        db.session.add(self)
        db.session.commit()
+
+   @classmethod
+   def get_reviews(cls,id):
+        comments = Blog.query.filter_by(user_id=id).all()
+        return comments   

@@ -7,7 +7,7 @@ from .. import db
 from .import main
 
 @main.route("/post/",methods=['GET','POST'])
-# @login_required
+@login_required
 def postblog():
     '''
     this is view funtion for posting a blog 
@@ -31,6 +31,6 @@ def postedblog():
     this is view funtion for posting a blog 
     '''
     blog_form=BlogForm()
-    title = postblog.title
-    blog = postblog.blog
+    title = Blog.query.filter_by(title='title').all()
+    blog = Blog.query.filter_by(blog='blog').all()
     return render_template('index.html',title=title,blog=blog,blog_form=blog_form)

@@ -2,16 +2,40 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">TechBlog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://127.0.0.1:5000/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5000/auth/register">sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5000/auth/login">sign in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="http://127.0.0.1:5000/post/">post</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
 <div class="container">
 <div class="row">
 <div class="col-md-2"> </div>
 <div class="col-md-8">
 {% for title in title %}
-{{title}}
+{{postblog.title}}
 {% endfor %}
 
 {% for blog in blog %}
-{{blog}}
+{{postblog.blog}}
 {% endfor %}
 </div>
 <div class="col-md-2"></div>
