@@ -10,3 +10,9 @@ class BlogForm(FlaskForm):
     title = StringField('title',validators=[DataRequired()])
 
     submit = SubmitField('submit')
+
+
+class CommentForm(FlaskForm):
+    comment = StringField('comment')
+
+    submit = SubmitField('submit')

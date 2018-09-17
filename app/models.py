@@ -60,7 +60,7 @@ class Blog(db.Model):
    id = db.Column(db.Integer,primary_key=True)
    title = db.Column(db.String(255))
    blog = db.Column(db.String(255))
-#    comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
+   comments = db.relationship('Comment',backref='blog',lazy='dynamic')
    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
    
 
@@ -70,7 +70,28 @@ class Blog(db.Model):
        db.session.add(self)
        db.session.commit()
 
+
+
+class Comment(db.Model):
+   __tablename__='comments'
+
+   '''
+   class for for posting a comment
+   
+   '''
+
+   id = db.Column(db.Integer,primary_key=True)
+   comment = db.Column(db.String(255))
+   blog_id = db.Column(db.Integer,db.ForeignKey('blog.id'))
+   
+    
+
+   def save_comment(self):
+       db.session.add(self)
+       db.session.commit()
+
+   
    @classmethod
-   def get_reviews(cls,id):
+   def get_comments(cls,id):
         comments = Blog.query.filter_by(user_id=id).all()
         return comments   
