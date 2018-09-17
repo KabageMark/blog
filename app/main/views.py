@@ -15,10 +15,8 @@ def postblog():
     postblog=[]
     form=BlogForm()
     if form.validate_on_submit():
-        title = form.title.data
-        blog = form.blog.data
 
-        postblog = Blog(blog=blog,title=title)
+        postblog = Blog(blog=form.blog.data,title=form.title.data)
 
         postblog.save_blog()
         return redirect(url_for('.postedblog'))
@@ -31,6 +29,8 @@ def postedblog():
     this is view funtion for posting a blog 
     '''
     blog_form=BlogForm()
-    title = Blog.query.filter_by(title='title').all()
-    blog = Blog.query.filter_by(blog='blog').all()
-    return render_template('index.html',title=title,blog=blog,blog_form=blog_form)
+    title = blog_form.title.data
+    blog = blog_form.blog.data
+    postblog= Blog.query.all()
+
+    return render_template('index.html',title=title,blog=postblog,blog_form=blog_form)

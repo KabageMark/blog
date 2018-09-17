@@ -30,13 +30,14 @@
 <div class="row">
 <div class="col-md-2"> </div>
 <div class="col-md-8">
-{% for title in title %}
-{{postblog.title}}
+{% for postblog in blog %}
+<h1>{{postblog.title}}</h1>
+<br>
+<p>{{postblog.blog}}</p>
 {% endfor %}
 
-{% for blog in blog %}
-{{postblog.blog}}
-{% endfor %}
+
+
 </div>
 <div class="col-md-2"></div>
 </div>
