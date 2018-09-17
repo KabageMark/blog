@@ -36,13 +36,14 @@
         <div class="card-body text-info">
           <h5 class="card-title">{{postblog.title}}</h5>
           <p class="card-text">{{postblog.blog}}</p>
+          {% for postcomment in comment %}
+          <small><i><p>{{postcomment.comment}}</p></i></small>
+          {% endfor %}
+          {{wtf.quick_form(comment_form)}}
+          </div>
         </div>
       </div>
-  {% for postcomment in comment %}
-  <small><i><p>{{postcomment.comment}}</p></i></small>
-  {% endfor %}
-  {{wtf.quick_form(comment_form)}}
-  </div>
+
 {% endfor %}
 
 
