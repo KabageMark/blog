@@ -34,14 +34,15 @@
 <h1>{{postblog.title}}</h1>
 <br>
 <p>{{postblog.blog}}</p>
+<small>{{postblog.posted}}</small>
 <div>
   {% for postcomment in comment %}
-  
-  <small><i><p>{postcomment.comment}</p></i></small>
+  <small><i><p>{{postcomment.comment}}</p></i></small>
   {% endfor %}
+  {{wtf.quick_form(comment_form)}}
   </div>
 {% endfor %}
-{{wtf.quick_form(comment_form)}}
+
 
 </div>
 <div class="col-md-2"></div>

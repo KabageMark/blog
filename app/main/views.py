@@ -39,6 +39,7 @@ def postedblog():
     title = blog_form.title.data  
     blog = blog_form.blog.data
     Comments = comment_form.comment.data
+    
 
     postblog= Blog.query.all()
     postcomment=Comment.query.all()
