@@ -1,5 +1,5 @@
 
-export DATABASE_URL='postgres://ahinwhmcidfiqc:7d42396d8a873d6a9ffa760971ac93dd94d8dbf771b9649e2040f4a8f4b00cc2@ec2-54-83-29-34.compute-1.amazonaws.com:5432/db0bj21elia979'
+export DATABASE_URL='postgres://sftkvlkqnrbwop:3190f084fd79601b5c88e41a7361e586713d74cd2aad335460c4ed6a2fbc9ef3@ec2-75-101-153-56.compute-1.amazonaws.com:5432/dcme69fpf1hsma'
 export SECRET_KEY='kabagemark'
 
 python3.6 manage.py server
