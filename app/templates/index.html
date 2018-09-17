@@ -31,11 +31,13 @@
 <div class="col-md-2"> </div>
 <div class="col-md-8">
 {% for postblog in blog %}
-<h1>{{postblog.title}}</h1>
-<br>
-<p>{{postblog.blog}}</p>
-<small>{{postblog.posted}}</small>
-<div>
+ <div class="card border-info mb-3" style="max-width: 40rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-info">
+          <h5 class="card-title">{{postblog.title}}</h5>
+          <p class="card-text">{{postblog.blog}}</p>
+        </div>
+      </div>
   {% for postcomment in comment %}
   <small><i><p>{{postcomment.comment}}</p></i></small>
   {% endfor %}
